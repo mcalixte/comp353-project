@@ -1,6 +1,6 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare('SELECT * FROM comp353.books AS books');
+$statement = $conn->prepare('SELECT * FROM C19PHCS.Person AS Person');
 $statement->execute();
 ?>
 
@@ -15,25 +15,31 @@ $statement->execute();
 </head>
 
 <body>
-    <h1>List of books.</h1>
-    <a href="./create.php">Add a new book</a>
+    <h1>List of Persons</h1>
+    <a href="./create.php">Add a new Person</a>
     <table>
         <thead>
             <tr>
-                <td>Id</td>
-                <td>Title</td>
-                <td>Publish Date</td>
-                <td>Price</td>
-                <td>Actions</td>
+                <td>id</td>
+                <td>medicare_num</td>
+                <td>first_name</td>
+                <td>last_name</td>
+                <td>phone_num</td>
+                <td>dob</td>
+                <td>citizenship</td>
+                <td>email</td>
             </tr>
         </thead>
         <tbody>
             <?php while ($row = $statement->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) { ?>
                 <tr>
-                    <td><?= $row["book_id"] ?></td>
-                    <td><?= $row["book_title"] ?></td>
-                    <td><?= $row["publish_date"] ?></td>
-                    <td><?= $row["price"] ?></td>
+                    <td><?= $row["medicare_num"] ?></td>
+                    <td><?= $row["first_name"] ?></td>
+                    <td><?= $row["last_name"] ?></td>
+                    <td><?= $row["phone_num"] ?></td>
+                    <td><?= $row["dob"] ?></td>
+                    <td><?= $row["citizenship"] ?></td>
+                    <td><?= $row["email"] ?></td>
                     <td>
                         <a href="./show.php?book_id=<?= $row["book_id"] ?>">Show</a>
                         <a href="./edit.php?book_id=<?= $row["book_id"] ?>">Edit</a>
