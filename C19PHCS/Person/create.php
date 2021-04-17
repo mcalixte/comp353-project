@@ -1,11 +1,14 @@
 <?php require_once '../database.php';
-$bool = isset($_POST["medicare_num"]);
-echo $bool;
                                                     
-if (isset($_POST["medicare_num"])) {
-    
-    echo 'console.log("Database connected!")', isset($_POST["medicare_num"]);
-                                                    
+if (isset($_POST["medicare_num"])
+    &&isset($_POST["first_name"])
+    &&isset($_POST["last_name"])
+    &&isset($_POST["phone_num"])
+    &&isset($_POST["postal_code"])
+    &&isset($_POST["dob"])
+    &&isset($_POST["citizenship"])
+    &&isset($_POST["email"])) {                                                
+  
     $person = $conn->prepare('INSERT INTO C19PHCS.Person (medicare_num, first_name, last_name, phone_num, postal_code, dob, citizenship, email)
                                     VALUES (:medicare_num, :first_name, :last_name, :phone_num, :postal_code, :dob, :citizenship, :email);');
                                           
@@ -20,6 +23,9 @@ if (isset($_POST["medicare_num"])) {
 
     if ($person->execute())
         header("Location: .");
+    else {
+            header("Location: ./create.php?medicare_num=".$_POST["medicare_num"]);
+        }
 }
 
 ?>

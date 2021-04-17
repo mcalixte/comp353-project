@@ -19,7 +19,7 @@ if (
                                     phone_num = :phone_num,
                                     citizenship = :citizenship,
                                     dob = :dob,
-                                    email = :email,
+                                    email = :email
                                     WHERE medicare_num = :medicare_num");
 
     $statement->bindParam(':medicare_num', $_POST["medicare_num"]);

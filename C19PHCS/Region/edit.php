@@ -3,12 +3,12 @@
 $statement = $conn->prepare("SELECT * FROM C19PHCS.Region AS Region WHERE Region.region_name = :region_name");
 $statement->bindParam(":region_name", $_GET["region_name"]);
 $statement->execute();
-$region = $statement->fetch(PDO::FETCH_ASSOC);
+$book = $statement->fetch(PDO::FETCH_ASSOC);
 
 if (
-    isset($_POST["region_name"])
+    isset($_POST["medicare_num"])
 ) {
-    $statement = $conn->prepare("UPDATE C19PHCS.Region SET region_name=:region_name,
+    $statement = $conn->prepare("UPDATE C19PHCS.Region SET  region_name=:region_name,
                                     WHERE region_name = :region_name;");
 
     $statement->bindParam(':region_name', $_POST["region_name"]);
@@ -20,7 +20,6 @@ if (
     }
 
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -37,8 +36,8 @@ if (
     <h1>Edit Region</h1>
     <form action="./edit.php" method="post">
         <label for="region_name">Region name</label><br>
-        <input type="text" name="region_name" id="region_name" value="<?= $region["book_tregion_nameitle"] ?>"> <br>
-        
+        <input type="text" name="region_name" id="region_name" > <br>
+        <input type="submit">Update</button>
     <a href="./">Back to Region list</a>
 </body>
 

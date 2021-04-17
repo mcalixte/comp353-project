@@ -37,8 +37,8 @@ $person = $statement->fetch(PDO::FETCH_ASSOC);
                     <td><?= $person["citizenship"] ?></td>
                     <td><?= $person["email"] ?></td>
                     <td>
-                        <a href="./edit.php?medicare_num=<?= $row["medicare_num"] ?>">Edit</a>
-                        <a href="./delete.php?medicare_num=<?= $row["medicare_num"] ?>">Delete</a>
+                        <a href="./edit.php?medicare_num=<?= $person["medicare_num"] ?>">Edit</a>
+                        <a href="./delete.php?medicare_num=<?= $person["medicare_num"] ?>">Delete</a>
                     </td>
                 </tr>
         </tbody>

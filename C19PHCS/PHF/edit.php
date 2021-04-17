@@ -20,7 +20,7 @@ if (
                                     email = :email,
                                     drive_thru = :drive_thru,
                                     type = :type,
-                                    acceptance_method = :acceptance_method,
+                                    acceptance_method = :acceptance_method 
                                     WHERE phf_id = :phf_id;");
 
     $statement->bindParam(':address', $_POST["address"]);

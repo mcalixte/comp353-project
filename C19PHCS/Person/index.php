@@ -20,13 +20,13 @@ $statement->execute();
     <table>
         <thead>
             <tr>
-                <td>medicare_num</td>
-                <td>first_name</td>
-                <td>last_name</td>
-                <td>phone_num</td>
-                <td>dob</td>
-                <td>citizenship</td>
-                <td>email</td>
+                <td><b>medicare_num</b></td>
+                <td><b>first_name</b></td>
+                <td><b>last_name</b></td>
+                <td><b>phone_num</b></td>
+                <td><b>dob</b></td>
+                <td><b>citizenship</b></td>
+                <td><b>email</b></td>
             </tr>
         </thead>
         <tbody>

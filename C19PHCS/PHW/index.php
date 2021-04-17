@@ -31,15 +31,15 @@ $statement->execute();
                     <td><?= $row["person"] ?></td>
                     <td><?= $row["phf_id"] ?></td>
                     <td>
-                        <a href="./show.php?phw_id=<?= $row["phw_id"] ?>">Show</a>
-                        <a href="./edit.php?phw_id=<?= $row["phw_id"] ?>">Edit</a>
-                        <a href="./delete.php?phw_id=<?= $row["phw_id"] ?>">Delete</a>
+                        <a href="../Person/show.php?medicare_num=<?= $row["person"] ?>">Show</a>
+                        <a href="../Person/edit.php?medicare_num=<?= $row["person"] ?>">Edit</a>
+                        <a href="../Person/delete.php?medicare_num=<?= $row["person"] ?>">Delete</a>
                     </td>
                 </tr>
             <?php } ?>
         </tbody>
     </table>
-    <a href="../">Back to PHF list</a>
+    <a href="../">Back to PH list</a>
 </body>
 
 </html>

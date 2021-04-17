@@ -15,7 +15,7 @@ $statement->execute();
 </head>
 
 <body>
-    <h1>List of books.</h1>
+    <h1>List of Regions.</h1>
     <a href="./create.php">Add a new Region</a>
     <table>
         <thead>

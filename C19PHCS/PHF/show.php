@@ -1,7 +1,7 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare("SELECT * FROM comp353.books AS book WHERE book.book_id = :book_id");
-$statement->bindParam(":book_id", $_GET["book_id"]);
+$statement = $conn->prepare("SELECT * FROM C19PHCS.PHF AS PHF WHERE PHF.phf_id = :phf_id");
+$statement->bindParam(":phf_id", $_GET["phf_id"]);
 $statement->execute();
 $PHF = $statement->fetch(PDO::FETCH_ASSOC);
 ?>
@@ -14,12 +14,34 @@ $PHF = $statement->fetch(PDO::FETCH_ASSOC);
     <title><?= $PHF["name"] ?></title>
 </head>
 <body>
-    <h1><?= $PHF["phf_id"] ?></h1>
-    <p>address: <?= $PHF["address"] ?></p>
-    <p>phone_num: <?= $PHF["phone_num"] ?></p>
-    <p>email: <?= $PHF["email"] ?></p>
-    <p>drive_thru: <?= $PHF["drive_thru"] ?></p>
-    <p>type: <?= $PHF["type"] ?></p>
-    <p>acceptance_method: <?= $PHF["acceptance_method"] ?></p>
+<table>
+        <thead>
+            <tr>
+                <td>phf_id</td>
+                <td>name</td>
+                <td>address</td>
+                <td>phone_num</td>
+                <td>email</td>
+                <td>drive_thru</td>
+                <td>type</td>
+                <td>acceptance_method</td>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td><?= $PHF["phf_id"] ?></td>
+                    <td><?= $PHF["name"] ?></td>
+                    <td><?= $PHF["address"] ?></td>
+                    <td><?= $PHF["phone_num"] ?></td>
+                    <td><?= $PHF["email"] ?></td>
+                    <td><?= $PHF["drive_thru"] ?></td>
+                    <td><?= $PHF["type"] ?></td>
+                    <td><?= $PHF["acceptance_method"] ?></td>
+                    <td>
+                        <a href="./show.php?phf_id=<?= $PHF["phf_id"] ?>">Show</a>
+                        <a href="./edit.php?phf_id=<?= $PHF["phf_id"] ?>">Edit</a>
+                        <a href="./delete.php?phf_id=<?= $PHF["phf_id"] ?>">Delete</a>
+                    </td>
+                </tr>
 </body>
 </html>
