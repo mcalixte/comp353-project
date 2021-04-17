@@ -1,7 +1,7 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare("DELETE FROM comp353.books WHERE books.book_id = :book_id; ");
-$statement->bindParam(":book_id", $_GET["book_id"]);
+$statement = $conn->prepare("DELETE FROM C19PHCS.groupZone AS GroupZone WHERE Region.gz_name = :gz_name; ");
+$statement->bindParam(":gz_name", $_GET["gz_name"]);
 $statement->execute();
 
 header("Location: .");

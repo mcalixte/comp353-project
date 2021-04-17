@@ -1,9 +1,9 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare("SELECT * FROM comp353.books AS book WHERE book.book_id = :book_id");
-$statement->bindParam(":book_id", $_GET["book_id"]);
+$statement = $conn->prepare("SELECT * FROM C19PHCS.PHW AS PHW WHERE PHW.phw_id = :phw_id");
+$statement->bindParam(":phw_id", $_GET["phw_id"]);
 $statement->execute();
-$book = $statement->fetch(PDO::FETCH_ASSOC);
+$PHW = $statement->fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +14,8 @@ $book = $statement->fetch(PDO::FETCH_ASSOC);
     <title><?= $book["book_title"] ?></title>
 </head>
 <body>
-    <h1><?= $book["book_title"] ?></h1>
-    <p>Publish Date: <?= $book["publish_date"] ?></p>
-    <p>Price: <?= $book["price"] ?></p>
+    <h1><?= $PHW["phw_id"] ?></h1>
+    <p>Person: <?= $PHW["person"] ?></p>
+    <p>phf_id: <?= $PHW["phf_id"] ?></p>
 </body>
 </html>

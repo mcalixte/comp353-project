@@ -20,7 +20,6 @@ $statement->execute();
     <table>
         <thead>
             <tr>
-                <td>id</td>
                 <td>medicare_num</td>
                 <td>first_name</td>
                 <td>last_name</td>

@@ -1,6 +1,6 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare('SELECT * FROM comp353.books AS books');
+$statement = $conn->prepare('SELECT * FROM C19PHCS.Region AS Region');
 $statement->execute();
 ?>
 
@@ -16,28 +16,21 @@ $statement->execute();
 
 <body>
     <h1>List of books.</h1>
-    <a href="./create.php">Add a new book</a>
+    <a href="./create.php">Add a new Region</a>
     <table>
         <thead>
             <tr>
-                <td>Id</td>
-                <td>Title</td>
-                <td>Publish Date</td>
-                <td>Price</td>
-                <td>Actions</td>
+                <td>region_name</td>
             </tr>
         </thead>
         <tbody>
             <?php while ($row = $statement->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) { ?>
                 <tr>
-                    <td><?= $row["book_id"] ?></td>
-                    <td><?= $row["book_title"] ?></td>
-                    <td><?= $row["publish_date"] ?></td>
-                    <td><?= $row["price"] ?></td>
+                    <td><?= $row["region_name"] ?></td>
                     <td>
-                        <a href="./show.php?book_id=<?= $row["book_id"] ?>">Show</a>
-                        <a href="./edit.php?book_id=<?= $row["book_id"] ?>">Edit</a>
-                        <a href="./delete.php?book_id=<?= $row["book_id"] ?>">Delete</a>
+                        <a href="./show.php?region_name=<?= $row["region_name"] ?>">Show</a>
+                        <a href="./edit.php?region_name=<?= $row["region_name"] ?>">Edit</a>
+                        <a href="./delete.php?region_name=<?= $row["region_name"] ?>">Delete</a>
                     </td>
                 </tr>
             <?php } ?>
