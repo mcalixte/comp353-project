@@ -35,7 +35,7 @@ if (isset($_POST["book_title"]) && isset($_POST["publish_date"]) && isset($_POST
         <input type="number" name="price" id="price"> <br>
         <button type="submit">Add</button>
     </form>
-    <a href="./">Back to book list</a>
+    <a href="./">Back to list</a>
 </body>
 
 </html>

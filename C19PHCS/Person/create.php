@@ -1,14 +1,24 @@
 <?php require_once '../database.php';
+$bool = isset($_POST["medicare_num"]);
+echo $bool;
+                                                    
+if (isset($_POST["medicare_num"])) {
+    
+    echo 'console.log("Database connected!")', isset($_POST["medicare_num"]);
+                                                    
+    $person = $conn->prepare('INSERT INTO C19PHCS.Person (medicare_num, first_name, last_name, phone_num, postal_code, dob, citizenship, email)
+                                    VALUES (:medicare_num, :first_name, :last_name, :phone_num, :postal_code, :dob, :citizenship, :email);');
+                                          
+    $person->bindParam(':medicare_num', $_POST["medicare_num"]);
+    $person->bindParam(':first_name', $_POST["first_name"]);
+    $person->bindParam(':last_name', $_POST["last_name"]);
+    $person->bindParam(':phone_num', $_POST["phone_num"]);
+    $person->bindParam(':postal_code', $_POST["postal_code"]);
+    $person->bindParam(':dob', $_POST["dob"]);
+    $person->bindParam(':citizenship', $_POST["citizenship"]);
+    $person->bindParam(':email', $_POST["email"]);
 
-if (isset($_POST["book_title"]) && isset($_POST["publish_date"]) && isset($_POST["price"])) {
-    $book = $conn->prepare("INSERT INTO comp353.books (book_title, publish_date, price)
-                                    VALUES (:book_title, :publish_date, :price);");
-
-    $book->bindParam(':book_title', $_POST["book_title"]);
-    $book->bindParam(':publish_date', $_POST["publish_date"]);
-    $book->bindParam(':price', $_POST["price"]);
-
-    if ($book->execute())
+    if ($person->execute())
         header("Location: .");
 }
 
@@ -16,26 +26,44 @@ if (isset($_POST["book_title"]) && isset($_POST["publish_date"]) && isset($_POST
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Book</title>
+    <title>Add Person</title>
 </head>
 
 <body>
-    <h1>Add Book</h1>
+    <h1>Add Person</h1>
     <form action="./create.php" method="post">
-        <label for="book_title">Title</label><br>
-        <input type="text" name="book_title" id="book_title"> <br>
-        <label for="publish_date">Publish Date</label><br>
-        <input type="date" name="publish_date" id="publish_date"> <br>
-        <label for="price">Price</label><br>
-        <input type="number" name="price" id="price"> <br>
+        <label for="medicare_num">Medicare Number</label><br>
+        <input type="text" name="medicare_num" id="medicare_num" > <br>
+
+        <label for="first_name">First Name</label><br>
+        <input type="text" name="first_name" id="first_name" > <br>
+
+        <label for="last_name">Last Name</label><br>
+        <input type="text" name="last_name" id="last_name" > <br>
+
+        <label for="phone_num">Phone Number</label><br>
+        <input type="text" name="phone_num" id="phone_num" > <br>
+
+        <label for="postal_code">Postal Code</label><br>
+        <input type="text" name="postal_code" id="postal_code" > <br>
+
+        <label for="dob">Date Of Birth</label><br>
+        <input type="date" required pattern="\d{4}-\d{2}-\d{2}" name="dob" id="dob" > <br>
+
+        <label for="citizenship">Citizenship</label><br>
+        <input type="text" name="citizenship" id="citizenship" > <br>
+
+
+        <label for="email">Email</label><br>
+        <input type="text" name="email" id="email" > <br>
+
         <button type="submit">Add</button>
     </form>
-    <a href="./">Back to book list</a>
+    <a href="./">Back to list</a>
 </body>
 
 </html>

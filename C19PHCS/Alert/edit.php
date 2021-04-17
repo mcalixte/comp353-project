@@ -53,7 +53,7 @@ if (
         <input type="hidden" name="book_id" id="book_id" value="<?= $book["book_id"] ?>"> <br>
         <button type="submit">Update</button>
     </form>
-    <a href="./">Back to book list</a>
+    <a href="./">Back to list</a>
 </body>
 
 </html>

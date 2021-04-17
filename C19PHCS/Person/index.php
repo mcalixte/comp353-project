@@ -40,9 +40,9 @@ $statement->execute();
                     <td><?= $row["citizenship"] ?></td>
                     <td><?= $row["email"] ?></td>
                     <td>
-                        <a href="./show.php?book_id=<?= $row["book_id"] ?>">Show</a>
-                        <a href="./edit.php?book_id=<?= $row["book_id"] ?>">Edit</a>
-                        <a href="./delete.php?book_id=<?= $row["book_id"] ?>">Delete</a>
+                        <a href="./show.php?medicare_num=<?= $row["medicare_num"] ?>">Show</a>
+                        <a href="./edit.php?medicare_num=<?= $row["medicare_num"] ?>">Edit</a>
+                        <a href="./delete.php?medicare_num=<?= $row["medicare_num"] ?>">Delete</a>
                     </td>
                 </tr>
             <?php } ?>

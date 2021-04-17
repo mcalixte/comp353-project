@@ -30,7 +30,7 @@ if (isset($_POST["region_name"])) {
         <br/>
         <button type="submit">Add</button>
     </form>
-    <a href="./">Back Persons list</a>
+    <a href="./">Back Region list</a>
 </body>
 
 </html>
