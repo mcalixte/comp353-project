@@ -1,7 +1,7 @@
 <?php require_once '../database.php';
 
 if (isset($_POST["gz_name"])) {
-    $region = $conn->prepare("INSERT INTO C19PHCS.groupZone (gz_name)
+    $region = $conn->prepare("INSERT INTO $database.groupZone (gz_name)
                                     VALUES (:gz_name);");
 
     $region->bindParam(':gz_name', $_POST["gz_name"]);

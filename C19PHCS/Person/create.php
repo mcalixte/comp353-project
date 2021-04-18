@@ -9,8 +9,8 @@ if (isset($_POST["medicare_num"])
     &&isset($_POST["citizenship"])
     &&isset($_POST["email"])) {                                                
   
-    $person = $conn->prepare('INSERT INTO C19PHCS.Person (medicare_num, first_name, last_name, phone_num, postal_code, dob, citizenship, email)
-                                    VALUES (:medicare_num, :first_name, :last_name, :phone_num, :postal_code, :dob, :citizenship, :email);');
+    $person = $conn->prepare("INSERT INTO $database.Person (medicare_num, first_name, last_name, phone_num, postal_code, dob, citizenship, email)
+                                    VALUES (:medicare_num, :first_name, :last_name, :phone_num, :postal_code, :dob, :citizenship, :email);");
                                           
     $person->bindParam(':medicare_num', $_POST["medicare_num"]);
     $person->bindParam(':first_name', $_POST["first_name"]);

@@ -13,12 +13,12 @@
     <p>Choose one of the following links:</p>
     <a href="./Person/">Person</a><br/>
     <a href="./Region/">Region</a><br/>
-    <a href="./Alert/">Alert</a><br/>
+    <a href="./Alert-History/">Alert</a><br/>
     <a href="./Facility/">Facility</a><br/>
     <a href="./PHF/">Public Health Facility</a><br/>
     <a href="./PHW/">Public Health Worker</a><br/>
     <a href="./GZ/">GZ</a><br/>
-    <a href="./hr/">hr</a><br/>
+    <a href="./HR/">hr</a><br/>
 </body>
 
 </html>

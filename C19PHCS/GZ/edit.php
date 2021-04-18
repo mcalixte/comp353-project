@@ -1,14 +1,14 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare("SELECT * FROM C19PHCS.groupZone AS GroupZone WHERE GroupZone.gz_name = :gz_name");
+$statement = $conn->prepare("SELECT * FROM $database.groupZone AS GroupZone WHERE GroupZone.gz_name = :gz_name");
 $statement->bindParam(":gz_name", $_GET["gz_name"]);
 $statement->execute();
-$region = $statement->fetch(PDO::FETCH_ASSOC);
+$groupzone = $statement->fetch(PDO::FETCH_ASSOC);
 
 if (
     isset($_POST["gz_name"])
 ) {
-    $statement = $conn->prepare("UPDATE C19PHCS.Region SET gz_name=:gz_name,
+    $statement = $conn->prepare("UPDATE $database.groupZone SET gz_name=:gz_name 
                                     WHERE gz_name = :gz_name;");
 
     $statement->bindParam(':gz_name', $_POST["gz_name"]);
@@ -36,8 +36,8 @@ if (
 <body>
     <h1>Edit GroupZone</h1>
     <form action="./edit.php" method="post">
-        <label for="gz_name">Region name</label><br>
-        <input type="text" name="gz_name" id="gz_name" value="<?= $region["gz_name"] ?>"> <br>
+        <label for="gz_name">GroupZone name</label><br>
+        <input type="text" name="gz_name" id="gz_name" value="<?= $groupzone["gz_name"] ?>"> <br>
         
     <a href="./">Back to GroupZone list</a>
 </body>

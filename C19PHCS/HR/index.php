@@ -1,6 +1,6 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare('SELECT * FROM comp353.books AS books');
+$statement = $conn->prepare('SELECT * FROM $database.Recommendation AS Recommendation');
 $statement->execute();
 ?>
 
@@ -15,29 +15,24 @@ $statement->execute();
 </head>
 
 <body>
-    <h1>List of books.</h1>
-    <a href="./create.php">Add a new book</a>
+    <h1>List of Recommendations.</h1>
+    <a href="./create.php">Add a new Recommendation</a>
     <table>
         <thead>
             <tr>
-                <td>Id</td>
-                <td>Title</td>
-                <td>Publish Date</td>
-                <td>Price</td>
-                <td>Actions</td>
+                <td>Recommendation id</td>
+                <td>Recommendation description</td>
             </tr>
         </thead>
         <tbody>
             <?php while ($row = $statement->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) { ?>
                 <tr>
-                    <td><?= $row["book_id"] ?></td>
-                    <td><?= $row["book_title"] ?></td>
-                    <td><?= $row["publish_date"] ?></td>
-                    <td><?= $row["price"] ?></td>
+                    <td><?= $row["id"] ?></td>
+                    <td><?= $row["description"] ?></td>
                     <td>
-                        <a href="./show.php?book_id=<?= $row["book_id"] ?>">Show</a>
-                        <a href="./edit.php?book_id=<?= $row["book_id"] ?>">Edit</a>
-                        <a href="./delete.php?book_id=<?= $row["book_id"] ?>">Delete</a>
+                        <a href="./show.php?id=<?= $row["id"] ?>">Show</a>
+                        <a href="./edit.php?id=<?= $row["id"] ?>">Edit</a>
+                        <a href="./delete.php?id=<?= $row["id"] ?>">Delete</a>
                     </td>
                 </tr>
             <?php } ?>

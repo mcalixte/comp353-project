@@ -1,7 +1,7 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare('SELECT * FROM C19PHCS.Region AS Region');
-$statement->execute();
+$groupzone = $conn->prepare("SELECT * FROM $database.groupZone AS GroupZone");
+$groupzone->execute();
 ?>
 
 <!DOCTYPE html>
@@ -24,13 +24,13 @@ $statement->execute();
             </tr>
         </thead>
         <tbody>
-            <?php while ($row = $statement->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) { ?>
+            <?php while ($row = $groupzone->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) { ?>
                 <tr>
-                    <td><?= $row["region_name"] ?></td>
+                    <td><?= $row["gz_name"] ?></td>
                     <td>
-                        <a href="./show.php?region_name=<?= $row["region_name"] ?>">Show</a>
-                        <a href="./edit.php?region_name=<?= $row["region_name"] ?>">Edit</a>
-                        <a href="./delete.php?region_name=<?= $row["region_name"] ?>">Delete</a>
+                        <a href="./show.php?gz_name=<?= $row["gz_name"] ?>">Show</a>
+                        <a href="./edit.php?gz_name=<?= $row["gz_name"] ?>">Edit</a>
+                        <a href="./delete.php?gz_name=<?= $row["gz_name"] ?>">Delete</a>
                     </td>
                 </tr>
             <?php } ?>

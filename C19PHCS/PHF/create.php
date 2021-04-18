@@ -1,7 +1,7 @@
 <?php require_once '../database.php';
 
 if (isset($_POST["name"]) && isset($_POST["address"]) && isset($_POST["phone_num"]) && isset($_POST["email"]) && isset($_POST["drive_thru"]) && isset($_POST["type"]) && isset($_POST["acceptance_method"])) {
-    $PHF = $conn->prepare("INSERT INTO  C19PHCS.PHF (name, address, phone_num, email, drive_thru, type, acceptance_method)
+    $PHF = $conn->prepare("INSERT INTO  $database.PHF (name, address, phone_num, email, drive_thru, type, acceptance_method)
                                     VALUES (:name, :address, :phone_num, email, drive_thru, type, acceptance_method);");
 
     $PHF->bindParam(':name', $_POST["name"]);

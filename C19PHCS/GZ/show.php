@@ -1,9 +1,9 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare("SELECT * FROM comp353.books AS book WHERE book.book_id = :book_id");
-$statement->bindParam(":book_id", $_GET["book_id"]);
+$statement = $conn->prepare("SELECT * FROM $database.groupZone AS GroupZone WHERE GroupZone.gz_name = :gz_name");
+$statement->bindParam(":gz_name", $_GET["gz_name"]);
 $statement->execute();
-$book = $statement->fetch(PDO::FETCH_ASSOC);
+$groupzone = $statement->fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,11 +11,11 @@ $book = $statement->fetch(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $book["book_title"] ?></title>
+    <title><?= $groupzone["book_title"] ?></title>
 </head>
 <body>
-    <h1><?= $book["book_title"] ?></h1>
-    <p>Publish Date: <?= $book["publish_date"] ?></p>
-    <p>Price: <?= $book["price"] ?></p>
+    <h1><?= $groupzone["gz_name"] ?></h1>
+    <a href="./edit.php?gz_name=<?= $row["gz_name"] ?>">Edit</a>
+    <a href="./delete.php?gz_name=<?= $row["gz_name"] ?>">Delete</a>
 </body>
 </html>

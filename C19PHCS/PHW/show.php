@@ -1,6 +1,6 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare("SELECT * FROM C19PHCS.PHW AS PHW WHERE PHW.phw_id = :phw_id");
+$statement = $conn->prepare("SELECT * FROM $database.PHW AS PHW WHERE PHW.phw_id = :phw_id");
 $statement->bindParam(":phw_id", $_GET["phw_id"]);
 $statement->execute();
 $PHW = $statement->fetch(PDO::FETCH_ASSOC);

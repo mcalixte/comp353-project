@@ -1,5 +1,5 @@
 <?php require_once '../database.php';
-$statement = $conn->prepare('SELECT * FROM C19PHCS.PHW AS PHW');
+$statement = $conn->prepare("SELECT * FROM $database.PHW AS PHW");
 $statement->execute();
 ?>
 

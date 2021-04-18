@@ -1,6 +1,6 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare("SELECT * FROM C19PHCS.Region AS Region WHERE Region.region_name = :region_name");
+$statement = $conn->prepare("SELECT * FROM $database.Region AS Region WHERE Region.region_name = :region_name");
 $statement->bindParam(":region_name", $_GET["region_name"]);
 $statement->execute();
 $book = $statement->fetch(PDO::FETCH_ASSOC);
@@ -8,7 +8,7 @@ $book = $statement->fetch(PDO::FETCH_ASSOC);
 if (
     isset($_POST["medicare_num"])
 ) {
-    $statement = $conn->prepare("UPDATE C19PHCS.Region SET  region_name=:region_name,
+    $statement = $conn->prepare("UPDATE $database.Region SET  region_name=:region_name,
                                     WHERE region_name = :region_name;");
 
     $statement->bindParam(':region_name', $_POST["region_name"]);

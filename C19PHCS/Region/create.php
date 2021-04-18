@@ -1,7 +1,7 @@
 <?php require_once '../database.php';
 
 if (isset($_POST["region_name"])) {
-    $region = $conn->prepare("INSERT INTO C19PHCS.Region (region_name)
+    $region = $conn->prepare("INSERT INTO $database.Region (region_name)
                                     VALUES (:region_name);");
 
     $region->bindParam(':region_name', $_POST["region_name"]);

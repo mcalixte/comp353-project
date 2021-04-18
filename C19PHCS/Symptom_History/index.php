@@ -1,6 +1,6 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare('SELECT * FROM C19PHCS.Symptom_history AS Symptom_history');
+$statement = $conn->prepare("SELECT * FROM $database.Symptom_history AS Symptom_history");
 $statement->execute();
 ?>
 
