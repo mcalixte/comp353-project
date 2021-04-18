@@ -13,8 +13,8 @@ create table Alert_History(
     alert_level INT,
     date_issued Date,
     is_active Boolean,
-    FOREIGN KEY (region_name) REFERENCES Region(region_name),
-    FOREIGN KEY (alert_level) REFERENCES Alert_Level(alert_level),
+    FOREIGN KEY (region_name) REFERENCES Region(region_name) ON DELETE CASCADE,
+    FOREIGN KEY (alert_level) REFERENCES Alert_Level(alert_level) ON DELETE CASCADE,
     PRIMARY KEY (region_name, alert_level, date_issued)
 );
 
@@ -22,14 +22,14 @@ create table City(
     city_name VARCHAR(50),
     province VARCHAR(2),
     region_name VARCHAR(50),
-    FOREIGN KEY (region_name) REFERENCES Region(region_name),
+    FOREIGN KEY (region_name) REFERENCES Region(region_name) ON DELETE CASCADE,
     PRIMARY KEY (city_name)
 );
 
 create table Postal_Code(
     postal_code VARCHAR(7),
     city_name VARCHAR(50),
-    FOREIGN KEY (city_name) REFERENCES City(city_name),
+    FOREIGN KEY (city_name) REFERENCES City(city_name) ON DELETE CASCADE,
     PRIMARY KEY (postal_code)
 );
 
@@ -42,7 +42,7 @@ create table Person (
     dob DATE,
     citizenship VARCHAR(50),
     email VARCHAR(50),
-    FOREIGN KEY (postal_code) REFERENCES Postal_Code(postal_code)
+    FOREIGN KEY (postal_code) REFERENCES Postal_Code(postal_code) ON DELETE CASCADE
 );
 
 create table Message(
@@ -53,18 +53,18 @@ create table Message(
     new_alert INT,
     person VARCHAR(50),
     region_name VARCHAR(50),
-    FOREIGN KEY (person) REFERENCES Person(medicare_num),
-    FOREIGN KEY (region_name) REFERENCES Region(region_name),
-    FOREIGN KEY (old_alert) REFERENCES Alert_Level(alert_level),
-    FOREIGN KEY (new_alert) REFERENCES Alert_Level(alert_level)
+    FOREIGN KEY (person) REFERENCES Person(medicare_num) ON DELETE CASCADE,
+    FOREIGN KEY (region_name) REFERENCES Region(region_name) ON DELETE CASCADE,
+    FOREIGN KEY (old_alert) REFERENCES Alert_Level(alert_level) ON DELETE CASCADE,
+    FOREIGN KEY (new_alert) REFERENCES Alert_Level(alert_level) ON DELETE CASCADE
 );
  
 create table Parent (
     child VARCHAR(50),
     parent VARCHAR(50),
     relation ENUM('Father','Mother'),
-    FOREIGN KEY (child) REFERENCES Person(medicare_num),
-    FOREIGN KEY (parent) REFERENCES Person(medicare_num),
+    FOREIGN KEY (child) REFERENCES Person(medicare_num) ON DELETE CASCADE,
+    FOREIGN KEY (parent) REFERENCES Person(medicare_num) ON DELETE CASCADE,
     PRIMARY KEY (child, parent)
 );
 
@@ -84,14 +84,14 @@ create table PHW(
     phw_id INT PRIMARY KEY,
     person VARCHAR(50),
     phf_id INT,
-    FOREIGN KEY (person) REFERENCES Person(medicare_num),
-    FOREIGN KEY (phf_id) REFERENCES PHF(phf_id)
+    FOREIGN KEY (person) REFERENCES Person(medicare_num) ON DELETE CASCADE,
+    FOREIGN KEY (phf_id) REFERENCES PHF(phf_id) ON DELETE CASCADE
 );
 
 create table Service_History(
     service_date Date,
     phw_id INT,
-    FOREIGN KEY (phw_id) REFERENCES PHW(phw_id),
+    FOREIGN KEY (phw_id) REFERENCES PHW(phw_id) ON DELETE CASCADE,
     PRIMARY KEY (service_date, phw_id)
 );
 
@@ -104,9 +104,9 @@ CREATE TABLE Test(
     results ENUM('POS','NEG'),
     test_date DATE,
     result_date DATE,
-    FOREIGN KEY (conducted_on) REFERENCES Person(medicare_num),
-    FOREIGN KEY (conducted_by) REFERENCES PHW(phw_id),
-    FOREIGN KEY (conducted_at) REFERENCES PHF(phf_id)
+    FOREIGN KEY (conducted_on) REFERENCES Person(medicare_num) ON DELETE CASCADE,
+    FOREIGN KEY (conducted_by) REFERENCES PHW(phw_id) ON DELETE CASCADE,
+    FOREIGN KEY (conducted_at) REFERENCES PHF(phf_id) ON DELETE CASCADE
 );
 
 create table groupZone(
@@ -116,8 +116,8 @@ create table groupZone(
 create table groupZoneMember(
     group_name VARCHAR(50),
     member VARCHAR(50),
-    FOREIGN KEY (member) REFERENCES Person(medicare_num),
-    FOREIGN KEY (group_name) REFERENCES groupZone(gz_name),
+    FOREIGN KEY (member) REFERENCES Person(medicare_num) ON DELETE CASCADE,
+    FOREIGN KEY (group_name) REFERENCES groupZone(gz_name) ON DELETE CASCADE,
     PRIMARY KEY (group_name,member)
 );
 
@@ -141,6 +141,6 @@ create table Symptom_history(
     diarrhea boolean,
     sore_throat boolean,
     other TEXT,
-    FOREIGN KEY (person) REFERENCES Person(medicare_num),
+    FOREIGN KEY (person) REFERENCES Person(medicare_num) ON DELETE CASCADE,
     PRIMARY KEY (date_time,person)
 );
