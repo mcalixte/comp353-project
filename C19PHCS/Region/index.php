@@ -28,7 +28,6 @@ $statement->execute();
                 <tr>
                     <td><?= $row["region_name"] ?></td>
                     <td>
-                        <a href="./show.php?region_name=<?= $row["region_name"] ?>">Show</a>
                         <a href="./edit.php?region_name=<?= $row["region_name"] ?>">Edit</a>
                         <a href="./delete.php?region_name=<?= $row["region_name"] ?>">Delete</a>
                     </td>

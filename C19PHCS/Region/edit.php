@@ -8,7 +8,7 @@ $book = $statement->fetch(PDO::FETCH_ASSOC);
 if (
     isset($_POST["medicare_num"])
 ) {
-    $statement = $conn->prepare("UPDATE $database.Region SET  region_name=:region_name,
+    $statement = $conn->prepare("UPDATE $database.Region SET region_name=:region_name
                                     WHERE region_name = :region_name;");
 
     $statement->bindParam(':region_name', $_POST["region_name"]);
