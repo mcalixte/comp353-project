@@ -15,12 +15,12 @@ $groupzone->execute();
 </head>
 
 <body>
-    <h1>List of books.</h1>
-    <a href="./create.php">Add a new Region</a>
+    <h1>List of Group zones.</h1>
+    <a href="./create.php">Add a new Group zones</a>
     <table>
         <thead>
             <tr>
-                <td>region_name</td>
+                <td>Group zone name</td>
             </tr>
         </thead>
         <tbody>

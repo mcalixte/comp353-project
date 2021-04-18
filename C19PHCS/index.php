@@ -14,11 +14,10 @@
     <a href="./Person/">Person</a><br/>
     <a href="./Region/">Region</a><br/>
     <a href="./Alert-History/">Alert</a><br/>
-    <a href="./Facility/">Facility</a><br/>
     <a href="./PHF/">Public Health Facility</a><br/>
     <a href="./PHW/">Public Health Worker</a><br/>
-    <a href="./GZ/">GZ</a><br/>
-    <a href="./HR/">hr</a><br/>
+    <a href="./GroupZone/">Group Zone</a><br/>
+    <a href="./Recommendation/">Recommendation</a><br/>
 </body>
 
 </html>

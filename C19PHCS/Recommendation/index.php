@@ -1,6 +1,6 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare('SELECT * FROM $database.Recommendation AS Recommendation');
+$statement = $conn->prepare("SELECT * FROM $database.Recommendation AS Recommendation");
 $statement->execute();
 ?>
 

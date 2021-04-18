@@ -1,6 +1,6 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare('SELECT * FROM $database.Region AS Region');
+$statement = $conn->prepare("SELECT * FROM $database.Region AS Region");
 $statement->execute();
 ?>
 
