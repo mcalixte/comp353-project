@@ -1,18 +1,14 @@
 
 -- 9
 
-SELECT * FROM Symptom_History 
-WHERE person = 
-( 
-SELECT conducted_on FROM Test
-WHERE Test.result_date = ${result_date} and Test.conducted_on = ${conducted_on_date} and Test.results = 'POS'
-);
-
+SELECT * FROM Symptom_history
+WHERE person = ${person}
+AND date_time >= ${date};
 
 -- 10 
 
 SELECT * FROM Message 
-WHERE date_time > ${after_date} and date_issued < ${before_date};
+WHERE date_time Between ${after_date} AND ${before_date};
 
 
 -- 11 
@@ -31,8 +27,8 @@ FROM Person,
 
 -- 12 
 
-SELECT address, drive_thru, type, acceptance_method,
-(SELECT Count(*) FROM PHW WHERE PHW.phf = PHF.phf_id) as Number_of_workers FROM PHF;
+SELECT *, (SELECT Count(*) FROM PHW WHERE PHW.phf_id = PHF.phf_id) as Number_of_workers
+FROM PHF;
 
 
 -- 13
@@ -45,7 +41,7 @@ SELECT results, first_name, last_name, dob, phone_num, email from Test, Person
 WHERE result_date = ${result_date} AND Person.medicare_num = Test.conducted_on ORDER BY results;
 
 -- 15
-SELECT person, phw_id from PHW WHERE phf_id=0;
+SELECT person, phw_id from PHW WHERE phf_id=${phf_id};
 
 -- 16
 
@@ -67,7 +63,7 @@ AND ${test_date});
 
 SELECT City.region_name,
        Count(case Test.results when 'POS' then 1 else null end) as positive_cases,
-       Count(case Test.results when 'Neg' then 1 else null end) as negative_cases
+       Count(case Test.results when 'NEG' then 1 else null end) as negative_cases
 FROM Postal_Code, City, Person, Test
 WHERE Postal_Code.city_name = City.city_name
     AND Person.postal_code = Postal_Code.postal_code
