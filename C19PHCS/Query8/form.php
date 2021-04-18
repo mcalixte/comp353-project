@@ -133,7 +133,7 @@ if (isset($_POST["submit"])) {
     <input type="text" name="other" id="other" > <br/>
     <input type="submit" value="Submit Form" name="submit"/>
     </form>
-    <a href="./">Back to list</a>
+    <a href="./">Back to login</a>
 </body>
 
 </html>

@@ -47,7 +47,7 @@ if(isset($_POST["submit"])){
         <input type="text" name="pass" id="first_name" > <br>
         <input type="submit" value="login" name="submit"/>
     </form>
-    <a href="./">Back to list</a>
+    <a href="../">Back to home</a>
 </body>
 
 </html>
