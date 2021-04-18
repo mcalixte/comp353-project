@@ -3,8 +3,8 @@ session_start();
                                                     
 if (isset($_POST["submit"])) {
     if(!empty($_POST['date_time'])){      
-        $Symptom_tuple = $conn->prepare('INSERT INTO C19PHCS.symptom_history(date_time,person,fever,cough,breath_difficulty,taste_loss, nausea, stomach_aches,vomitting,headache,muscle_pain,diarrhea,sore_throat,other)
-                                        VALUES (:date_time,:person,:fever,:cough,:breath, :taste_loss, :nausea, :stomache, :vomitting,:headache,:muscle,:diarrhea,:throat,:other);');   
+        $Symptom_tuple = $conn->prepare("INSERT INTO $database.symptom_history(date_time,person,fever,cough,breath_difficulty,taste_loss, nausea, stomach_aches,vomitting,headache,muscle_pain,diarrhea,sore_throat,other)
+                                        VALUES (:date_time,:person,:fever,:cough,:breath, :taste_loss, :nausea, :stomache, :vomitting,:headache,:muscle,:diarrhea,:throat,:other);");   
                                         
         $Symptom_tuple->bindParam(':date_time', $_POST["date_time"]);
         $Symptom_tuple->bindParam(':person',$_SESSION['user']);

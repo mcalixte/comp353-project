@@ -3,7 +3,7 @@ session_start();
 if(isset($_POST["submit"])){  
   
     if(!empty($_POST['user']) && !empty($_POST['pass'])) {  
-        $query = "SELECT * FROM C19PHCS.Person WHERE medicare_num = :user AND dob = :pass";
+        $query = "SELECT * FROM $database.Person,$database.test WHERE medicare_num=conducted_on AND results='POS' AND medicare_num = :user AND dob = :pass;";
         $statement = $conn->prepare($query);
         $statement->execute(
             array(
