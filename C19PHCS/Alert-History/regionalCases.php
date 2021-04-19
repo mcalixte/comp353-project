@@ -33,7 +33,7 @@
 </head>
 
 <body>
-    <h1>List of Messages</h1>
+    <h1>Alert Regional Cases</h1>
     <form action="./regionalCases.php" method="get">
         <label for="start_date">Start Date</label><br>
         <input type="date" name="start_date" id="start_date"> <br>
