@@ -3,7 +3,7 @@ session_start();
 if(isset($_POST["submit"])){  
   
     if(!empty($_POST['user']) && !empty($_POST['pass'])) {  
-        $query = "SELECT * FROM $database.Person,$database.test WHERE medicare_num=conducted_on AND results='POS' AND medicare_num = :user AND dob = :pass;";
+        $query = "SELECT * FROM $database.Person,$database.Test WHERE medicare_num=conducted_on AND results='POS' AND medicare_num = :user AND dob = :pass;";
         $statement = $conn->prepare($query);
         $statement->execute(
             array(
@@ -14,7 +14,6 @@ if(isset($_POST["submit"])){
         $rowCount = $statement->rowCount();
         if($rowCount>0){
             $_SESSION["user"] = $_POST["user"];
-            echo("User found");
             header("location:form.php");
         }
         else{
