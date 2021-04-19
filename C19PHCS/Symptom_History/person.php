@@ -1,6 +1,5 @@
 <?php require_once '../database.php';
 
-if (isset($_GET["person"]) && isset($_GET["date_time"])) {
 
     $statement = $conn->prepare("SELECT * FROM Symptom_history AS SH
     WHERE SH.person = :person
@@ -9,7 +8,6 @@ if (isset($_GET["person"]) && isset($_GET["date_time"])) {
     $statement->bindParam(":person", $_GET["person"]);
     $statement->bindParam(":date_time", $_GET["date_time"]);
     $statement->execute();
-}
 
 ?>
 
