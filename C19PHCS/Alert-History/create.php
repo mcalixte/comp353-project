@@ -12,6 +12,8 @@ if (isset($_POST["region_name"])
     $statement->bindParam(':date_issued', $_POST["date_issued"]);
     $statement->bindParam(':is_active', $_POST["is_active"]);
 
+    $statement->execute();
+
 }
 
 ?>
