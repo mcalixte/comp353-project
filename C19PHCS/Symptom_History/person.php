@@ -24,11 +24,11 @@
 <body>
     <h1>Symptom History</h1>
     <form action="./person.php" method="get">
-        <label for="person">Person medicare ID</label><br>
-        <input type="text" name="person" id="person" value="<?= $groupzone["person"] ?>"> <br>
+        <label for="person">Person medicare ID</label><br/>
+        <input type="text" name="person" id="person"> <br/>
 
         <label for="date_time">Result Date</label><br>
-        <input type="date" name="date_time" id="date_time" value="<?= $groupzone["date_time"] ?>"> <br>
+        <input type="date" name="date_time" id="date_time"> <br>
 
         <input type="submit">
         <br>
