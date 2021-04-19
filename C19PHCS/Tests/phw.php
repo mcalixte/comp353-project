@@ -1,7 +1,7 @@
 <?php require_once '../database.php';
 
 
-$statement = $conn->prepare("SELECT phw_id, test_date FROM PHW, Test WHERE PHW.person=Test.conducted_on AND results='POS' AND phf_id=:phf_id AND test_date=:test_date;");
+$statement = $conn->prepare("SELECT phw_id, test_date FROM PHW, Test WHERE $database.PHW.person=$database.Test.conducted_on AND $database.Test.results='POS' AND $database.PHW.phf_id = :phf_id AND test_date = :test_date;");
 $statement->bindParam(':phf_id', $_GET["phf_id"]);
 $statement->bindParam(':test_date', $_GET["test_date"]);
 $statement->execute();
@@ -10,7 +10,7 @@ $statement2 = $conn->prepare("SELECT DISTINCT($database.PHW.phw_id) From $databa
     WHERE $database.PHW.phw_id=$database.Service_history.phw_id 
     AND phf_id=:phw_id
     AND PHW.phw_id <> :phw_id
-    AND service_date IN(
+    AND $database.Service_history.service_date IN(
     SELECT service_date FROM $database.Service_history AS Service_history where Service_history.phw_id = :phw_id AND Service_history.service_date BETWEEN DATE_ADD(:test_date, INTERVAL -14 day)
     AND :test_date);");
 
@@ -54,11 +54,6 @@ $statement2->execute();
             <thead>
                 <tr>
                     <td><b>phw_id</b></td>
-                    <td><b>test_date</b></td>
-                    <td><b>last_name</b></td>
-                    <td><b>phone_num</b></td>
-                    <td><b>dob</b></td>
-                    <td><b>email</b></td>
                 </tr>
             </thead>
             <tbody>

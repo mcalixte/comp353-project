@@ -16,7 +16,7 @@ if (isset($_GET["start_date"]) && isset($_GET["end_date"])) {
     $statement->bindParam(":end_date", $_GET["end_date"]);
     $statement->execute();
 
-    $statement2 = $conn->prepare("SELECT * FROM $database.Alert_History AS Alert_History WHERE Alert_History.date_issued BETWEEN ${start_date} AND ${end_date};");
+    $statement2 = $conn->prepare("SELECT * FROM $database.Alert_History AS Alert_History WHERE Alert_History.date_issued BETWEEN :start_date AND :end_date;");
     $statement2->bindParam(":start_date", $_GET["start_date"]);
     $statement2->bindParam(":end_date", $_GET["end_date"]);
     $statement2->execute();
