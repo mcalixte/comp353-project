@@ -55,15 +55,15 @@ CREATE TRIGGER test_result
         SET @result_message = Concat('Your test result is: ', NEW.results);
 
         SET @test_region = (
-            SELECT City.region_name FROM Postal_Code, City 
-            WHERE Postal_Code.city_name = City.city_name 
+            SELECT City.region_name FROM Postal_Code, City
+            WHERE Postal_Code.city_name = City.city_name
             AND postal_code = (
                 SELECT postal_code FROM Person
-                WHERE medicare_num = NEW.conducted_on;
-            );
+                WHERE medicare_num = NEW.conducted_on
+            )
         );
 
-        INSERT INTO MESSAGE (
+        INSERT INTO Message (
             date_time,
             description,
             old_alert,
@@ -85,7 +85,7 @@ CREATE TRIGGER test_result
         IF NEW.results = 'POS' THEN
             SET @recommendation_message = 'Follow Health Recommendations at https://xfc353.encs.concordia.ca/comp353-project/C19PHCS/Recommendation/';
 
-            INSERT INTO MESSAGE (
+            INSERT INTO Message (
                 date_time,
                 description,
                 old_alert,
@@ -99,7 +99,7 @@ CREATE TRIGGER test_result
                 NULL,
                 NEW.conducted_on,
                 @test_region
-            )
+            );
 
         END IF;   
 
