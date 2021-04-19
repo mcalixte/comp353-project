@@ -9,7 +9,7 @@ $statement->execute();
 $statement2 = $conn->prepare("SELECT DISTINCT($database.PHW.phw_id) From $database.Service_History, $database.PHW 
     WHERE $database.PHW.phw_id=$database.Service_history.phw_id 
     AND phf_id=:phw_id
-    AND PHW.phw_id <> :phw_id
+    AND $database.PHW.phw_id <> :phw_id
     AND $database.Service_history.service_date IN(
     SELECT service_date FROM $database.Service_history AS Service_history where Service_history.phw_id = :phw_id AND Service_history.service_date BETWEEN DATE_ADD(:test_date, INTERVAL -14 day)
     AND :test_date);");
