@@ -1,6 +1,5 @@
 <?php require_once '../database.php';
 
-if (isset($_GET["start_date"]) && isset($_GET["end_date"])) {
     
     $statement = $conn->prepare("SELECT $database.City.region_name,
         Count(case Test.results when 'POS' then 1 else null end) as positive_cases,
@@ -20,7 +19,7 @@ if (isset($_GET["start_date"]) && isset($_GET["end_date"])) {
     $statement2->bindParam(":start_date", $_GET["start_date"]);
     $statement2->bindParam(":end_date", $_GET["end_date"]);
     $statement2->execute();
-}
+
 ?>
 
 <!DOCTYPE html>
