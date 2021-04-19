@@ -54,17 +54,14 @@ $statement2->execute();
             <thead>
                 <tr>
                     <td><b>phw_id</b></td>
+                    <td><b>test_date</b></td>
                 </tr>
             </thead>
             <tbody>
                 <?php while ($row = $statement->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) { ?>
                     <tr>
-                        <td><?= $row["results"] ?></td>
-                        <td><?= $row["first_name"] ?></td>
-                        <td><?= $row["last_name"] ?></td>
-                        <td><?= $row["phone_num"] ?></td>
-                        <td><?= $row["dob"] ?></td>
-                        <td><?= $row["email"] ?></td>    
+                        <td><?= $row["phw_id"] ?></td>  
+                        <td><?= $row["test_date"] ?></td>  
                     </tr>
                 <?php } ?>
             </tbody>
