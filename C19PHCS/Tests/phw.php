@@ -33,7 +33,7 @@ $statement2->execute();
 
 <body>
     <h1>List of Positive Public Heath workers and their colleagues</h1>
-    <form action="./" method="get">
+    <form action="./phw.php" method="get">
     <h2>Provide PHF and testinfo</h2>
         <label for="phf_id">Phf_id</label><br>
         <input type="text" name="phf_id" id="phf_id"> <br>
