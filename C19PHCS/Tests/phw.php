@@ -1,6 +1,5 @@
 <?php require_once '../database.php';
 
-if (isset($_GET["phw_id"])&&isset($_GET["phf_id"])&&isset($_GET["test_date"])) {
 
 $statement = $conn->prepare("SELECT phw_id, test_date FROM PHW, Test WHERE PHW.person=Test.conducted_on AND results='POS' AND phf_id=:phf_id AND test_date=:test_date;");
 $statement->bindParam(':phf_id', $_GET["phf_id"]);
@@ -19,7 +18,7 @@ $statement2->bindParam(':phw_id', $_GET["phw_id"]);
 $statement2->bindParam(':phf_id', $_GET["phf_id"]);
 $statement2->bindParam(':test_date', $_GET["test_date"]);
 $statement2->execute();
-}
+
 ?>
 
 <!DOCTYPE html>

@@ -1,12 +1,11 @@
 <?php require_once '../database.php';
 
-if (isset($_GET["start_date"]) && isset($_GET["end_time"])) {
     $statement = $conn->prepare("SELECT * FROM $database.Message AS Message WHERE Message.date_time Between :start_date AND :end_time;");
 
     $statement->bindParam(":start_date", $_GET["start_date"]);
     $statement->bindParam(":end_time", $_GET["end_time"]);
     $statement->execute();
-}
+
 ?>
 
 <!DOCTYPE html>
