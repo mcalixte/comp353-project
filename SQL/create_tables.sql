@@ -46,7 +46,7 @@ create table Person (
 );
 
 create table Message(
-    msg_id INT PRIMARY KEY,
+    msg_id INT PRIMARY KEY AUTO_INCREMENT,
     date_time DateTime,
     description Text,
     old_alert INT,
