@@ -15,7 +15,7 @@ $statement->execute();
 </head>
 
 <body>
-    <h1>List of books.</h1>
+    <h1>List of Facilities</h1>
     <a href="./create.php">Add a new Public Health Facility</a>
     <table>
         <thead>
