@@ -1,7 +1,5 @@
 <?php require_once '../database.php';
 
-if (isset($_GET["address"])) {
-    echo $_GET["address"];
 $statement = $conn->prepare("SELECT first_name, last_name, dob, medicare_num, phone_num, citizenship, email, postal_code, Relation.father_f_name, Relation.father_l_name, Relation.mother_f_name, Relation.mother_l_name
     FROM $database.Person,
         (SELECT p.child as child, p.parent as father, p.parent_f_name as father_f_name, p.parent_l_name as father_l_name,
@@ -14,7 +12,6 @@ $statement = $conn->prepare("SELECT first_name, last_name, dob, medicare_num, ph
         Where $database.Person.medicare_num=Relation.child AND $database.Person.postal_code = :address;");
 $statement->bindParam(':address', $_GET["address"]);
 $statement->execute();
-}
 ?>
 
 <!DOCTYPE html>
