@@ -3,7 +3,7 @@ session_start();
                                                     
 if (isset($_POST["submit"])) {
     if(!empty($_POST['date_time'])){      
-        $Symptom_tuple = $conn->prepare("INSERT INTO $database.symptom_history(date_time,person,fever,cough,breath_difficulty,taste_loss, nausea, stomach_aches,vomitting,headache,muscle_pain,diarrhea,sore_throat,other)
+        $Symptom_tuple = $conn->prepare("INSERT INTO $database.Symptom_history(date_time,person,fever,cough,breath_difficulty,taste_loss, nausea, stomach_aches,vomitting,headache,muscle_pain,diarrhea,sore_throat,other)
                                         VALUES (:date_time,:person,:fever,:cough,:breath, :taste_loss, :nausea, :stomache, :vomitting,:headache,:muscle,:diarrhea,:throat,:other);");   
                                         
         $Symptom_tuple->bindParam(':date_time', $_POST["date_time"]);
@@ -81,7 +81,7 @@ if (isset($_POST["submit"])) {
             $Symptom_tuple->bindParam(':other',$var);
         }
         if ($Symptom_tuple->execute()){
-            header("Location: ../");
+            header("Location: ../Symptom_History");
             echo "executed";
         }
         else{
