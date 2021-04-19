@@ -1,7 +1,7 @@
 <?php require_once '../database.php';
 
 
-$statement = $conn->prepare("SELECT phw_id, test_date FROM PHW, Test WHERE $database.PHW.person=$database.Test.conducted_on AND $database.Test.results='POS' AND $database.PHW.phf_id = :phf_id AND test_date = :test_date;");
+$statement = $conn->prepare("SELECT phw_id, test_date FROM $database.PHW, $database.Test WHERE $database.PHW.person=$database.Test.conducted_on AND $database.Test.results='POS' AND $database.PHW.phf_id = :phf_id AND test_date = :test_date;");
 $statement->bindParam(':phf_id', $_GET["phf_id"]);
 $statement->bindParam(':test_date', $_GET["test_date"]);
 $statement->execute();
