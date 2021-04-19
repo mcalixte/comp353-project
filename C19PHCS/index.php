@@ -17,7 +17,12 @@
     <a href="./PHF/">Public Health Facility</a><br/>
     <a href="./PHW/">Public Health Worker</a><br/>
     <a href="./GroupZone/">Group Zone</a><br/>
+    <a href="./Alert-History/">Alert History</a><br/>
+    <a href="./Messages/">Messages</a><br/>
+    <a href="./Form/">Symptom History Form</a><br/>
     <a href="./Recommendation/">Recommendation</a><br/>
+    <a href="./Symptom_History/">Symptom History</a><br/>
+    <a href="./Tests/">Tests</a><br/>
 </body>
 
 </html>
