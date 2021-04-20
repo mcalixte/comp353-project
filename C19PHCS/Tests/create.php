@@ -8,7 +8,7 @@ if (isset($_POST["test_id"])
 &&isset($_POST["test_date"])
 &&isset($_POST["result_date"])) {
     $region = $conn->prepare("INSERT INTO Test (test_id, conducted_on, conducted_by, conducted_at, results, test_date, result_date) 
-                                            VALUES (1002, 'MCLT81820471', 39, 5, 'POS', '2021-04-14', '2021-04-15');");
+                                            VALUES (:test_id, :conducted_on, :conducted_by, :conducted_at, :results, :test_date, :result_date);");
 
     $region->bindParam(':test_id', $_POST["test_id"]);
     $region->bindParam(':conducted_on', $_POST["conducted_on"]);
