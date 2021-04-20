@@ -31,13 +31,13 @@ if (isset($_POST["test_id"])
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Region</title>
+    <title>Add Test</title>
 </head>
 
 <body>
-    <h1>Add Region</h1>
+    <h1>Add Test</h1>
     <form action="./create.php" method="post">
-        <label for="test_id">Region Name</label><br>
+        <label for="test_id">Test Id</label><br>
         <input type="text" name="test_id" id="test_id"> <br>
 
         <label for="conducted_on">Conducted on</label><br>
