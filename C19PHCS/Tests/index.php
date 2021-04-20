@@ -1,6 +1,5 @@
 <?php require_once '../database.php';
 
-
 $statement = $conn->prepare("SELECT results, first_name, last_name, dob, phone_num, email from $database.Test, $database.Person 
 WHERE result_date = :result_date AND $database.Person.medicare_num = $database.Test.conducted_on ORDER BY results;");
 $statement->bindParam(':result_date', $_GET["result_date"]);
@@ -20,6 +19,7 @@ $statement->execute();
 
 <body>
     <h1>List of Persons and Tests</h1>
+    <a href="./create.php">Add a new Test</a>
     <form action="./" method="get">
         <label for="result_date">Search Test Results Date</label><br>
         <input type="date" name="result_date" id="result_date"> <br>
